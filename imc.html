@@ -9,46 +9,55 @@
 
 <style>
    body p {
-    background-color: rgb(199, 189, 189);
+   
         text-align: center;
     }
+   
     body {
-        background-color: rgb(153, 120, 143);
       
+        background: url("https://www.imagensanimadas.com/data/media/169/correr-imagem-animada-0012.gif") no-repeat;
+	background-size: 80px;  
+    }
+    label{
+      font-size: 20px;
     }
 </style>
+
 </head>
 
 <body>
+    
+        
 
-<p >Aprender sobre <a href="https://www.programasaudefacil.com.br/calculadora-de-imc">IMC</a>.</p>
+<p >Click aqui para saber mais sobre <a href="https://www.programasaudefacil.com.br/calculadora-de-imc">IMC</a>.</p>
 
 
 <form class="container" id="formulario">
 <div class="col-md-5">
    <fieldset class="from-group">
-    <legend>Cálculo IMC</legend>
+    <legend>CÁLCULO IMC (Índice de Massa Corporal)</legend>
+    
+    <form action="">
 
-    <label for="peso">Peso:</label>
-    <input type="text" name="peso" class="form-control"/>
+        <label>Insira seu peso:</label>
+        <input  type="text" id="peso" onkeypress="return SomenteNumero(event);" class="form-control"/>
 
-    <label for="altura">Altura:</label>
-    <input type="text" name="altura" class="form-control"/>
-
-    <label for="imc">IMC:</label>
-    <input type="text" name="imc" class="form-control" disabled="disabled"/>
-   <br>
+          <label>Insira sua altura:</label>
+        <input  type="text" id="altura" onkeypress="return SomenteNumero(event);"class="form-control"/>
+        <br>
+        <input type="submit" value="Calcular" class="btn btn-info" />
+        
+        <div id="resultado"></div>
+        </form>
    
-   <button type="button" class="btn btn-info" onclick="calcularIMC()">Calcular IMC</button>
-   
 
-</fieldset>
+   </fieldset>
 </div>
 </form>
 
-    <script  src="calcularIMC.js"></script>
-    
+   
+<script  src="calcularIMC.js"></script>
   
-  </script>
+
 </body>
 </html>

@@ -1,37 +1,38 @@
-function calcularIMC() {
-    var formulario = document.getElementyById("formulario");
-      var peso = +formulario.peso.value;
-      var altura = +formulario.altura.value;
-      var imc = peso / (altura * altura);
-      formulario.imc.value = imc.toFixed(2);
-      
-      
-      if(imc < 20)
-      {
-          alert('Você esta abaixo do peso!');
-      } 
-      else if(imc >20 && imc <= 25)
-      {
-          alert("Peso Ideal");
-      }
-      else if(imc >25 && imc <= 30)
-      {
-          alert("Sobrepeso");
-      }
-      else if(imc >30 && imc <= 35)
-      {
-          alert("Obesidade Moderada");
-      }
-      else if(imc >35 && imc <= 40)
-      {
-          alert("Obesidade Severa");
-      }
-      else if(imc >40 && imc <= 50)
-      {
-          alert("Obesidade Morbida");
-      }
-      else
-      {
-          alert('Gordo');
-      }
+var form = document.querySelector('form');
+
+  var imc=0;
+  var resultado = document.getElementById('resultado');
+	
+
+form.addEventListener('submit',function(event){
+  var altura =parseInt(form.altura.value);
+	var peso = parseInt(form.peso.value);
+  imc=(peso/Math.pow((altura/100),2)).toFixed(2);
+ if(imc <16){
+   resultado.innerHTML="Baixo peso muito grave "+imc+" kg/m²";
+    }else if(imc >=16 && imc <=16.99){
+      resultado.innerHTML="Baixo peso grave "+imc+" kg/m²";
+    }else if(imc >=17.00 && imc<=18.49){
+      resultado.innerHTML="Baixo peso "+imc+" kg/m²";
+    }else if(imc >=18.50 && imc <=24.99){
+      resultado.innerHTML="Peso normal "+imc+" kg/m²";
+    }else if(imc >=25.00 && imc <=29.99){
+      resultado.innerHTML="Sobrepeso "+imc+" kg/m²";
+    }else if(imc >=30 && imc <=34.99){
+      resultado.innerHTML="Obesidade grau I  "+imc+" kg/m²";
+    }else if(imc >=35.00 && imc <=39.99){
+      resultado.innerHTML="Obesidade grau II "+imc+" kg/m²";
+    }else if(imc >=40.00){
+      resultado.innerHTML="Obesidade grau III (obesidade mórbida) "+imc+" kg/m²";
+    }
+   event.preventDefault(); 
+});
+
+function SomenteNumero(e){
+ var tecla=(window.event)?event.keyCode:e.which;
+ if((tecla>47 && tecla<58)) return true;
+ else{
+ if (tecla==8 || tecla==0) return true;
+ else  return false;
+ }
 }
